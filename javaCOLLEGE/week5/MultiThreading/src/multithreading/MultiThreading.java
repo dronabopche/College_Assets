@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cherryapp;
+package multithreading;
 
 /**
  *
- * @author EXAM 2025
+ * @author 2025
  */
-public class CherryApp {
-    
-    
+public class MultiThreading {
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
-      login MyLogin = new login();
-      MyLogin.setVisible(true);
+        // TODO code application logic here
+        First f = new First();
+        f.start();
     }
     
 }

@@ -26,7 +26,7 @@ class PalindromeCheck extends Frame implements ActionListener, WindowListener {
         setVisible(true);
         addWindowListener(this);
     }
-
+ 
     public void actionPerformed(ActionEvent e) {
         String str = t1.getText();
         String rev = new StringBuilder(str).reverse().toString();

@@ -3,18 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cherryapp;
+package pkginterface;
 
 /**
  *
- * @author EXAM 2025
+ * @author 2025
  */
-public class CherryApp {
+public interface FC {
     
-    
-    public static void main(String[] args) {
-      login MyLogin = new login();
-      MyLogin.setVisible(true);
-    }
-    
+    public void moveForward();
+    public void moveBackward();
+    public void turnRight();
+     public void turnLeft();
 }
