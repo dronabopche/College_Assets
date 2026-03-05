@@ -14,8 +14,8 @@
   <a href="./new-syllabus.pdf">
     <img src="https://img.shields.io/badge/Download%20Syllabus-0A5C5C?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Download Syllabus">
   </a>
-   <a href="https://github.com/your-username/your-repo-name/stargazers">
-    <img src="https://img.shields.io/github/stars/your-username/your-repo-name?style=for-the-badge&logo=github" alt="GitHub Stars">
+   <a href="https://github.com/dronabopche/College_Assets">
+    <img src="https://img.shields.io/github/stars/dronabopche/College_Assets?style=for-the-badge&logo=github" alt="GitHub Stars">
   </a>
 </p>
 
