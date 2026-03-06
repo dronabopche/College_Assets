@@ -76,9 +76,9 @@ The repository is organized in a clean, flat structure for straightforward navig
 ├── 📂 pythonCOLLEGE/          # Python Programming Lab
 ├── 📂 securityCOLLEGE/        # Computer Security Lab
 ├── 📂 softwareCOLLEGE/        # Software Engineering Lab
-├── 📂 uasCOLLEGE/             # Unix & System Programming Lab
+├── 📂 unixCOLLEGE/            # Unix & System Programming Lab
 ├── 📂 webCOLLEGE/             # Web Technologies Lab
-└── 📄 new-syllabus.pdf        # Syllabus Reference
+└── 📄 nehuSYLLABUS.pdf        # Syllabus Reference
 ```
 
 ## Purpose & Goals
@@ -103,7 +103,7 @@ We welcome contributions from fellow students and alumni! If you have additional
 ---
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,12,24&height=120&section=footer&text=Happy%20Coding!&fontSize=24&fontAlignY=70" width="100%" alt="Footer Banner"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,12,24&height=120&section=footer&text=Study%20Well!&fontSize=24&fontAlignY=70" width="100%" alt="Footer Banner"/>
   <br>
-  <sub>Made with ❤️ by students, for students of North Eastern Hill University.</sub>
+  <sub>Made by students, for students of North Eastern Hill University.</sub>
 </div>
