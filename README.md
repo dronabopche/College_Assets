@@ -29,23 +29,31 @@ Whether you're preparing for exams, looking for reference code, or just getting 
 
 ## Subject Navigation
 
-Dive into the subject you're interested in. Each folder contains a well-organized collection of lab programs and related files.
+| Course Code  | Subject Name                         | Folder Link                                                                                            |
+| ------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| IT-BS-LC-112 | Engineering Physics Lab              | [engineering_physics_labCOLLEGE](./engineering_physics_labCOLLEGE)                                     |
+| IT-CE-LC-116 | Engineering Graphics                 | [engineering_graphicsCOLLEGE](./engineering_graphicsCOLLEGE)                                           |
+| IT-PC-LC-113 | IT Workshop                          | [it_workshopCOLLEGE](./it_workshopCOLLEGE)                                                             |
+| IT-PC-LC-215 | Professional Communication Skill Lab | [professional_communication_skill_labCOLLEGE](./professional_communication_skill_labCOLLEGE)           |
+| IT-PC-LC-312 | Cyber Security Lab                   | [cyber_security_labCOLLEGE](./cyber_security_labCOLLEGE)                                               |
+| IT-PC-LC-312 | Data Structure Lab                   | [data_structure_labCOLLEGE](./data_structure_labCOLLEGE)                                               |
+| IT-PC-LC-314 | Computer Graphics & Multimedia Lab   | [computer_graphics_and_multimedia_labCOLLEGE](./computer_graphics_and_multimedia_labCOLLEGE)           |
+| IT-PC-LC-412 | RDBMS Lab                            | [relational_database_management_system_labCOLLEGE](./relational_database_management_system_labCOLLEGE) |
+| IT-PC-LC-414 | OOP Lab                              | [object_oriented_programming_labCOLLEGE](./object_oriented_programming_labCOLLEGE)                     |
+| IT-PC-LC-512 | Operating System Lab                 | [operating_system_labCOLLEGE](./operating_system_labCOLLEGE)                                           |
+| IT-PC-LC-514 | Computer Network Lab                 | [computer_network_labCOLLEGE](./computer_network_labCOLLEGE)                                           |
+| IT-PC-LC-515 | Java Programming Lab                 | [java_programmingCOLLEGE](./java_programmingCOLLEGE)                                                   |
+| IT-PC-LC-612 | Web Technology Lab                   | [web_technology_labCOLLEGE](./web_technology_labCOLLEGE)                                               |
+| IT-PE-LC-613 | Cryptography Lab                     | [cryptography_labCOLLEGE](./cryptography_labCOLLEGE)                                                   |
+| IT-PE-LC-615 | Software System Lab                  | [software_system_laboratoryCOLLEGE](./software_system_laboratoryCOLLEGE)                               |
 
-| Subject Area                      | Folder Link                               | Description                                                               |
-| --------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------- |
-| **💻 C Programming**              | [cCOLLEGE](./cCOLLEGE)                    | Fundamental programs and algorithms in C.                                 |
-| **🌐 Computer Networks**          | [cnCOLLEGE](./cnCOLLEGE)                  | Socket programming, network protocols, and simulations.                   |
-| **🔐 Cryptography**               | [cryptoCOLLEGE](./cryptoCOLLEGE)          | Implementation of encryption/decryption algorithms.                       |
-| **🗄️ Database Systems**            | [databaseCOLLEGE](./databaseCOLLEGE)      | SQL queries, PL/SQL programs, and database design.                       |
-| **⚙️ Data Structures & Algorithms**| [dsaCOLLEGE](./dsaCOLLEGE)                | Core DSA implementations (Linked Lists, Trees, Sorting, etc.).           |
-| **🖼️ Computer Graphics**           | [graphicsCOLLEGE](./graphicsCOLLEGE)      | Graphics primitives, transformations, and animations.                    |
-| **☕ Java Programming**            | [javaCOLLEGE](./javaCOLLEGE)              | Object-oriented concepts, multithreading, and GUI programs in Java.      |
-| **📦 Object Oriented Programming**| [oopsCOLLEGE](./oopsCOLLEGE)               | Core OOP concepts (Classes, Inheritance, Polymorphism) in various langs. |
-| **🐧 Unix & System Programming**  | [uasCOLLEGE](./uasCOLLEGE)                 | Shell scripting, system calls, and process management in Unix.           |
-| **🐍 Python Programming**          | [pythonCOLLEGE](./pythonCOLLEGE)          | Python scripts for automation, data structures, and problem-solving.     |
-| **🛡️ Computer Security**           | [securityCOLLEGE](./securityCOLLEGE)      | Security tools, vulnerability analysis, and secure coding practices.     |
-| **📋 Software Engineering**        | [softwareCOLLEGE](./softwareCOLLEGE)      | Design documents, UML diagrams, and project artifacts.                   |
-| **🌍 Web Technologies**            | [webCOLLEGE](./webCOLLEGE)                | HTML, CSS, JavaScript, and full-stack web development projects.          |
+  **COURSECODE—subject_nameCOLLEGE**
+
+* Spaces are removed and replaced with underscores.
+
+* "COLLEGE" remains uppercase for consistency.
+
+<img src="https://github.com/dronabopche/College_Assets/blob/main/Lab_Courses/IT-BS-LC-112%E2%80%94engineering_physics_lab%20COLLEGE/questionPaper/use2.png" width="100%" alt="CourseNameStruct"/>
 
 ---
 
@@ -55,31 +63,10 @@ For reference, here is the official syllabus that guided this coursework. It can
 
 | File Link                               | Description                                   |
 | --------------------------------------- | --------------------------------------------- |
-| [📄 **new-syllabus.pdf**](./new-syllabus.pdf) | The comprehensive university syllabus document. |
+| [📄 **nehu-syllabus.pdf**](.nehuSYLLABUS(2017).pdf) | The comprehensive university syllabus document. |
 
+<img src="IT-BS-LC-112%E2%80%94engineering_physics_lab%20COLLEGE/questionPaper/use1.png" width="100%" alt="Footer Banner"/>
 ---
-
-## 📁 Repository Structure
-
-The repository is organized in a clean, flat structure for straightforward navigation. Each top-level directory corresponds to a primary subject area.
-
-```text
-.
-├── 📂 cCOLLEGE/              # C Programming Lab
-├── 📂 cnCOLLEGE/              # Computer Networks Lab
-├── 📂 cryptoCOLLEGE/          # Cryptography Lab
-├── 📂 databaseCOLLEGE/        # Database Systems Lab
-├── 📂 dsaCOLLEGE/             # Data Structures & Algorithms Lab
-├── 📂 graphicsCOLLEGE/        # Computer Graphics Lab
-├── 📂 javaCOLLEGE/            # Java Programming Lab
-├── 📂 oopsCOLLEGE/            # Object Oriented Programming Lab
-├── 📂 pythonCOLLEGE/          # Python Programming Lab
-├── 📂 securityCOLLEGE/        # Computer Security Lab
-├── 📂 softwareCOLLEGE/        # Software Engineering Lab
-├── 📂 unixCOLLEGE/            # Unix & System Programming Lab
-├── 📂 webCOLLEGE/             # Web Technologies Lab
-└── 📄 nehuSYLLABUS.pdf        # Syllabus Reference
-```
 
 ## Purpose & Goals
 
@@ -96,7 +83,7 @@ We welcome contributions from fellow students and alumni! If you have additional
 
 1.  **Fork** the repository.
 2.  **Create** a new branch (`git checkout -b feature/YourImprovement`).
-3.  **Commit** your changes (`git commit -m 'Add some amazing feature'`).
+3.  **Commit** your changes (`git commit -m 'Add new info'`).
 4.  **Push** to the branch (`git push origin feature/YourImprovement`).
 5.  **Open** a Pull Request.
 
