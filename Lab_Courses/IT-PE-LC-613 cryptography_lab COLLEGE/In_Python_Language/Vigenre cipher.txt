@@ -1,0 +1,51 @@
+def encr(pt, key):
+	pt = pt.upper()
+	key = key.upper()
+	cipher = ''
+	keylen = len(key)
+	kt=0;
+	for i in range(len(pt)):
+		if pt[i].isalpha():
+			p = ord(pt[i]) - ord('A')
+			k = ord(key[kt]) - ord('A')
+			c = (p + k) % 26
+			cipher += chr(c + ord('A'))
+			if kt == (keylen-1):
+				kt=0
+			else:
+				kt+=1
+		else:
+			cipher+=pt[i]		
+	return cipher
+
+def decr(ct, key):
+	ct = ct.upper()
+	key = key.upper()
+	pt = ''
+	keylen = len(key)
+	kt=0;
+	for i in range(len(ct)):
+		if ct[i].isalpha():
+			c = ord(ct[i]) - ord('A')
+			k = ord(key[kt]) - ord('A')
+			p = (c - k +26) % 26
+			pt += chr(p + ord('A'))
+			if kt == (keylen-1):
+				kt=0
+			else:
+				kt+=1
+		else:
+			pt+=ct[i]
+	return pt
+
+
+key = input("Enter the key for the Vigenere cipher: ")
+
+text = input("Enter Plaintext to encrypt: ")
+ci = encr(text, key)
+
+print("Encrypted text:", ci)
+
+text = input("Enter Cipher to decrypt: ")
+pl = decr(text, key)
+print("Decrypted text:", pl)

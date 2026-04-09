@@ -1,0 +1,16 @@
+for lex
+flex alphanumeric.l
+This creates a file called lex.yy.c.
+Compile:
+gcc lex.yy.c -o alphanumeric -lfl
+
+for yacc
+bison -dy calc.y
+flex  calc.l 
+gcc y.tab.c lex.yy.c -o calc -lfl
+./calc
+
+only yacc
+bison -dy calc.y
+gcc y.tab.c -o calc
+./calc

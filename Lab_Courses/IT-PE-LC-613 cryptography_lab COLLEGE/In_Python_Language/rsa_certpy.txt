@@ -1,0 +1,78 @@
+import math
+import sys
+import hashlib
+from datetime import datetime, timedelta
+
+def gcd(a, b):
+	while b != 0:
+		remainder = a % b
+		a = b
+		b = remainder
+	return a
+
+def generate_keypair(p, q):
+	n = p * q
+	phi = (p - 1) * (q - 1)
+	e = 0
+	e_values = [3, 17, 65537]
+	for candidate_e in e_values:
+		if 1 < candidate_e < phi and gcd(candidate_e, phi) == 1:
+			e = candidate_e
+			break
+	
+	if e == 0:
+		for candidate_e in range(2, phi):
+			if gcd(candidate_e, phi) == 1:
+				e = candidate_e
+				break
+
+	if e == 0:
+		print("cannot find compatible e value")
+		sys.exit()
+
+	print(f"\n--- Key Generation Details ---")
+	print(f"p: {p}, q: {q}")
+	print(f"n = p * q = {p} * {q} = {n}")
+	print(f"phi = (p-1) * (q-1) = ({p}-1) * ({q}-1) = {phi}")
+	print(f"Selected e: {e}")
+	if gcd(e, phi) == 1:
+		print("Condition gcd(e, phi) = 1 is satisfied.")
+	else:
+		print("ERROR: gcd(e, phi) is not 1. Exiting now")
+		sys.exit()
+
+	d = pow(e, -1, phi)
+	public_key = [e, n]
+	private_key = [d, n]
+
+	return public_key, private_key
+
+def create_certificate(owner_name, public_key):
+	e, n = public_key
+	valid_fr = datetime.now()
+	valid_to = valid_fr + timedelta(days=200)
+
+	public_str = f"{e},{n}"
+
+	enco = public_str.encode("utf-8")
+	p_hash = hashlib.sha256(enco)
+	p_hex = p_hash.hexdigest()
+	
+	certificate = f"Owner: {owner_name}\nPublic Key (e, n): ({public_str})\nValid From: {valid_fr.strftime('%Y-%m-%d')}\nValid To:   {valid_to.strftime('%Y-%m-%d')}\nPublic Key SHA-256 Hash: {p_hex}"
+	return certificate
+
+p_no = int(input("Enter first prime number for 'p': "))
+q_no = int(input("Enter second prime number for 'q': "))
+
+public_key, private_key = generate_keypair(p_no, q_no)
+
+print(f"\nPublic Key (e, n): {public_key}")
+print(f"Private Key (d, n): {private_key}")
+
+own = input("\nEnter owner's name for the certificate: ")
+certificate = create_certificate(own, public_key)
+print(certificate)
+
+with open("rsa_certificate.txt", "w") as ce:
+	ce.write(certificate)
+	print("Certificate saved")

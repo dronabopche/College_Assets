@@ -1,0 +1,100 @@
+import math
+import sys
+
+def gcd(a, b):
+	while b:
+		remainder = a % b
+		a = b
+		b = remainder
+	return a
+	
+def square_mul(base, exp, mod):
+
+	if exp == 0:
+		return 1 % mod
+	if exp == 1:
+		return base % mod
+		
+	res = 1
+	current_base = base % mod
+	
+	while exp > 0:
+		#if exponent is odd 
+		if not(exp % 2 == 0): 
+			res = (res * current_base) % mod
+						
+		current_base = (current_base * current_base) % mod
+		exp = exp // 2 
+        	
+	return res
+
+def generate_keypair(p, q):
+	n = p * q
+	phi = (p - 1) * (q - 1)
+	e = 0
+	e_values = [3, 17, 65537]
+	for candidate_e in e_values:
+		if 1 < candidate_e < phi and gcd(candidate_e, phi) == 1:
+			e = candidate_e
+			break
+		
+	if e == 0:
+		for candidate_e in range(2, phi):
+			if gcd(candidate_e, phi) == 1:
+				e = candidate_e
+				break
+                
+	if e == 0: 
+        	print("cannot find compatible e value")
+        	sys.exit()
+        	
+	print(f"\n--- Key Generation Details ---")
+	print(f"p: {p}, q: {q}")
+	print(f"n = p * q = {p} * {q} = {n}")
+	print(f"phi = (p-1) * (q-1) = ({p}-1) * ({q}-1) = {phi}")
+	print(f"Selected e: {e}")
+	if gcd(e, phi) == 1:
+		print("Condition gcd(e, phi) = 1 is satisfied.")
+	else:
+		print("ERROR: gcd(e, phi) is not 1. Exiting now")
+		sys.exit()
+	print("Square muliplication will be used")
+		
+	d = pow(e, -1, phi) 
+	public_key = [e, n]
+	private_key = [d, n]
+	
+	return public_key, private_key
+	
+def encrypt(public_key, plaintext):
+	e, n = public_key
+	cipher_text = []
+	for char in plaintext:
+		cascii = ord(char)
+		encrypt_char = square_mul(cascii, e, n)
+		cipher_text.append(encrypt_char)
+	return cipher_text
+	
+def decrypt(private_key, ciphertext):
+	d, n = private_key
+	plaintext = []
+	for char in ciphertext:
+		cascii = square_mul(char, d, n)
+		decrypt_char = chr(cascii)
+		plaintext.append(decrypt_char)
+	return "".join(plaintext)
+
+p_no= int(input("Enter first prime number for 'p': "))
+q_no= int(input("Enter second prime number for 'q': "))
+message_input = input("Enter the message to encrypt: ")
+
+public_key, private_key = generate_keypair(p_no, q_no)
+print(f"\nPublic Key (e, n): {public_key}")
+print(f"Private Key (d, n): {private_key}")
+
+encrypted_message = encrypt(public_key, message_input)
+print(f"\nOriginal Message: '{message_input}'")
+print(f"Encrypted Message (numeric list): {encrypted_message}")
+
+decrypted_message = decrypt(private_key, encrypted_message)
+print(f"Decrypted Message: '{decrypted_message}'")

@@ -1,0 +1,41 @@
+import sys
+
+class Calculator:
+    def __init__(self):
+        self.a = float(input("Enter the first number: "))
+        self.b = float(input("Enter the second number: "))
+
+    def add(self):
+        return self.a + self.b
+
+    def sub(self):
+        return self.a - self.b
+
+    def mul(self):
+        return self.a * self.b
+
+    def divi(self):
+        if self.b == 0:
+            sys.exit("cannot divide by 0")
+        return self.a / self.b
+
+calc = Calculator()
+
+print("Choose operation:")
+print("1. Add")
+print("2. Subtract")
+print("3. Multiply")
+print("4. Divide")
+
+c = input("Enter choice (1/2/3/4): ")
+
+if c == '1':
+    print("Result:", calc.add())
+elif c == '2':
+    print("Result:", calc.sub())
+elif c == '3':
+    print("Result:", calc.mul())
+elif c == '4':
+    print("Result:", calc.divi())
+else:
+    print("wrong choice")

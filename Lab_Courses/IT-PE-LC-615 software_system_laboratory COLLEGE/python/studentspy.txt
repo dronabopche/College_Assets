@@ -1,0 +1,11 @@
+Students = {
+    "Student1": {"name": "Alice", "age": 32},
+    "Student2": {"name": "Liam", "age": 42},
+    "Student3": {"name": "Lob", "age": 22}
+}
+
+for student_id, info in Students.items():
+    print(f"{student_id}:")
+
+    for key, value in info.items():
+        print(f"  {key} = {value}")

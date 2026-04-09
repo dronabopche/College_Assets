@@ -1,0 +1,8 @@
+import hashlib
+
+msg = "hello meow"
+e = msg.encode("utf-8")
+hash = hashlib.sha256(e)
+hex = hash.hexdigest()
+print("message is "+msg)
+print("sha256: "+hex)

@@ -1,0 +1,5 @@
+1.	Write a program to create two child processes. Each process should display its own process id and its parent process id. The parent process should wait for the termination of the all child processes and display its own process id.
+
+2.	Write a program to create a child process. The child process should execute a program to display the current date. The parent process should wait for the termination of the child process and returns the process id of its own as well as the child.	
+
+3.	Write program to create two child processes and execute two different programs to display the contents of the current directory by the first child and to display the process’ information by the second child. The parent process has to wait for the termination of the child processes and display the process id of each process.

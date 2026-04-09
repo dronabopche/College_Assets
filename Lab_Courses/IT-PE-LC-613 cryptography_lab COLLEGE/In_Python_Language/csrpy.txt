@@ -1,0 +1,114 @@
+import math
+import sys
+import hashlib
+
+# ------------------ RSA KEY GENERATION ------------------
+
+def gcd(a, b):
+	while b != 0:
+		a, b = b, a % b
+	return a
+
+def generate_keypair(p, q):
+	n = p * q
+	phi = (p - 1) * (q - 1)
+	e = 0
+	e_values = [3, 17, 65537]
+	for candidate_e in e_values:
+		if 1 < candidate_e < phi and gcd(candidate_e, phi) == 1:
+			e = candidate_e
+			break
+	
+	if e == 0:
+		for candidate_e in range(2, phi):
+			if gcd(candidate_e, phi) == 1:
+				e = candidate_e
+				break
+
+	if e == 0:
+		print("Cannot find compatible e value")
+		sys.exit()
+
+	d = pow(e, -1, phi)
+	public_key = [e, n]
+	private_key = [d, n]
+
+	return public_key, private_key
+
+# ------------------ RSA ENCRYPTION/DECRYPTION ------------------
+
+def encrypt(public_key, plaintext):
+	e, n = public_key
+	return [pow(ord(char), e, n) for char in plaintext]
+
+def decrypt(private_key, ciphertext):
+	d, n = private_key
+	return "".join([chr(pow(char, d, n)) for char in ciphertext])
+
+# ------------------ CSR / CA / CERTIFICATE ------------------
+
+def create_csr(owner_name, public_key):
+	e, n = public_key
+	csr_data = f"{owner_name}:{e}:{n}"
+	print(f"\n--- Certificate Signing Request (CSR) ---\n{csr_data}\n")
+	return csr_data
+
+def ca_sign_csr(csr_data, ca_private_key):
+	csr_hash = int(hashlib.sha256(csr_data.encode()).hexdigest(), 16)
+	d, n = ca_private_key
+	signature = pow(csr_hash, d, n)
+	return signature
+
+def create_digital_certificate(owner_name, public_key, ca_signature):
+	e, n = public_key
+	return f"""
+--- Digital Certificate ---
+Owner: {owner_name}
+Public Key (e, n): ({e}, {n})
+CA Signature: {ca_signature}
+----------------------------
+"""
+
+def verify_certificate(csr_data, signature, ca_public_key):
+	csr_hash = int(hashlib.sha256(csr_data.encode()).hexdigest(), 16)
+	e, n = ca_public_key
+	decrypted_hash = pow(signature, e, n)
+	return decrypted_hash == csr_hash
+
+# ------------------ MAIN PROGRAM ------------------
+
+# 1. User input
+p_no = int(input("Enter first prime number for 'p': "))
+q_no = int(input("Enter second prime number for 'q': "))
+message_input = input("Enter the message to encrypt: ")
+
+# 2. Generate RSA keys
+public_key, private_key = generate_keypair(p_no, q_no)
+print(f"\nPublic Key (e, n): {public_key}")
+print(f"Private Key (d, n): {private_key}")
+
+# 3. Encrypt + Decrypt
+encrypted_message = encrypt(public_key, message_input)
+print(f"\nEncrypted Message (numeric): {encrypted_message}")
+decrypted_message = decrypt(private_key, encrypted_message)
+print(f"Decrypted Message: '{decrypted_message}'")
+
+# 4. Certificate generation
+owner_name = input("\nEnter owner's name for certificate: ")
+csr = create_csr(owner_name, public_key)
+
+# 5. CA key generation (hardcoded CA primes for demo)
+print("\n--- Generating CA Keys ---")
+ca_public_key, ca_private_key = generate_keypair(61, 53)
+print(f"CA Public Key: {ca_public_key}")
+
+# 6. Sign CSR
+ca_signature = ca_sign_csr(csr, ca_private_key)
+
+# 7. Create and display certificate
+certificate = create_digital_certificate(owner_name, public_key, ca_signature)
+print(certificate)
+
+# 8. Verify certificate
+valid = verify_certificate(csr, ca_signature, ca_public_key)
+print(f"Certificate Verification: {'âœ… VALID' if valid else 'âŒ INVALID'}")

@@ -1,0 +1,15 @@
+class Employee:
+    def info(self):
+        self.id = int(input('Enter ID: '))
+        self.name = input('Enter Name: ')
+        self.salary = float(input('Enter Salary: '))
+
+    def display(self):
+        print("\nEmployee Details:")
+        print(f"ID: {self.id}")
+        print(f"Name: {self.name}")
+        print(f"Salary: {self.salary:.2f}")
+
+emp = Employee()
+emp.info()
+emp.display()
