@@ -65,7 +65,7 @@ For reference, here is the official syllabus that guided this coursework. It can
 | --------------------------------------- | --------------------------------------------- |
 | [📄 **nehu-syllabus.pdf**](.nehuSYLLABUS(2017).pdf) | The comprehensive university syllabus document. |
 
-<img src="IT-BS-LC-112%E2%80%94engineering_physics_lab%20COLLEGE/questionPaper/use1.png" width="100%" alt="Footer Banner"/>
+<img src="https://github.com/dronabopche/College_Assets/blob/main/Lab_Courses/IT-BS-LC-112%E2%80%94engineering_physics_lab%20COLLEGE/questionPaper/use1.png" width="100%" alt="Footer Banner"/>
 ---
 
 ## Purpose & Goals
