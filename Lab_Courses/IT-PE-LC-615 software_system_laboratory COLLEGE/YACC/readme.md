@@ -1,8 +1,3 @@
-# Arithmetic Expression Parser using YACC
-
-## Description
-This program uses YACC (Bison) to parse arithmetic expressions based on defined grammar rules.
-
 ## Steps to Run
 
 ### 1. Create the YACC file using vi
@@ -30,20 +25,6 @@ gcc y.tab.c -o calc
 
 ```bash
 ./calc
-```
-
-## Example
-
-**Input:**
-
-```
-2+3
-```
-
-**Output:**
-
-```
-Add
 ```
 
 ## Notes
