@@ -3,10 +3,13 @@
 #include<ctype.h>
 int yylval;
 %}
+
 %token id
 %left "+" "-"
 %left "*" "/"
+
 %%
+
 S: E '\n' { printf("%d", $1); }	
 ;
 
@@ -16,6 +19,7 @@ E: E '+' E { $$ = $1 + $3; }
  | E '/' E { $$ = $1 / $3; }
  | id      { $$ = $1; }
 ;
+
 %%
 
 int main()
