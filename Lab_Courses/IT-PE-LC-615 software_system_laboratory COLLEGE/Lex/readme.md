@@ -1,13 +1,8 @@
-# Alphanumeric Validation using Lex
-
-## Description
-This program uses Lex to check whether the given input is alphanumeric.
-
 ## Steps to Run
 
 ### 1. Create the Lex file using vi
 ```bash
-vi alphanumeric.l
+vi abc.l
 ````
 
 * Press `i` to enter insert mode
@@ -17,13 +12,13 @@ vi alphanumeric.l
 ### 2. Generate the C file using Lex
 
 ```bash
-lex alphanumeric.l
+lex abc.l
 ```
 
 ### 3. Compile the generated file
 
 ```bash
-gcc lex.yy.c -o alphanumeric
+gcc lex.yy.c -o abc
 ```
 
 ### 4. Run the program
@@ -32,17 +27,4 @@ gcc lex.yy.c -o alphanumeric
 ./a.out
 ```
 
-## Example
-
-**Input:**
-
-```
-abc123
-```
-
-**Output:**
-
-```
-Valid Alphanumeric
-```
 
