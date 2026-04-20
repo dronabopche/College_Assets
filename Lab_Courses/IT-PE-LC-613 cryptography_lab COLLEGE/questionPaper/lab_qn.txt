@@ -1,0 +1,8 @@
+1. program for encrypt/decrypt a text file using monoalpha chiper.
+2. program to get the plain text from a given chiper text generated through a mono alpha chiper
+   using freq analysis attack.
+3. program for encrypt/decrypt a text file using playfair chiper.
+4. program for encrypt/decrypt a text file using vigenre chiper.
+5. program to calculate the index of concidence of a given file (to find monoalphabetic or poly alpha).
+6. program to get the plain text from a given chiper text generated through a vignere chiper
+   using kosiskis test.
