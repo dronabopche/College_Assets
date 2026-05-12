@@ -1,4 +1,5 @@
 class Solution:
     def concatWithReverse(self, nums: list[int]) -> list[int]:
-        rev = nums[::-1]
-        return nums+rev
+        res=nums
+        k=nums[::-1]
+        return res+k
