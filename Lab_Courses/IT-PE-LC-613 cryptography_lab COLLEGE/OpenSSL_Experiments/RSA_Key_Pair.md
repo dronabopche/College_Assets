@@ -8,12 +8,6 @@ To generate RSA public and private key pairs using OpenSSL.
 
 # Introduction
 
-RSA is an asymmetric cryptographic algorithm used for:
-
-* Secure communication
-* Digital signatures
-* Encryption and decryption
-
 RSA uses:
 
 * **Public Key** → Used for encryption
@@ -140,21 +134,3 @@ MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AM...
 -----END PUBLIC KEY-----
 ```
 
----
-
-# Result
-
-RSA public and private key pairs were successfully generated using OpenSSL.
-
----
-
-# Conclusion
-
-* RSA private key was generated successfully.
-* Public key was extracted from the private key.
-* The generated keys can now be used for:
-
-  * Encryption
-  * Decryption
-  * Digital signatures
-  * Secure communication

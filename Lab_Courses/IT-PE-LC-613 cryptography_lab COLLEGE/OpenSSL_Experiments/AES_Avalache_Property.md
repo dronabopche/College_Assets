@@ -273,19 +273,3 @@ xxd c2.bin
 2, 5, 8, 11, 14, 19, 25, ...
 ```
 
----
-
-# Result
-
-A one-bit change in plaintext caused large unpredictable changes in ciphertext.
-
-This confirms that AES exhibits a strong avalanche effect.
-
----
-
-# Conclusion
-
-* AES encryption was successfully performed using OpenSSL.
-* AES decryption correctly restored the original plaintext.
-* The avalanche property was verified experimentally.
-* Small changes in plaintext produced significant ciphertext changes, proving AES is highly secure against cryptographic attacks.

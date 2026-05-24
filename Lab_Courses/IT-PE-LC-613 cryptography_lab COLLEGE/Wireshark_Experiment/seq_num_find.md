@@ -136,27 +136,3 @@ sudo tcpdump -i eth0 tcp -w capture.pcap
 ```bash id="4lfqzb"
 tcpdump -nn -r capture.pcap
 ```
-
----
-
-# Observation Table
-
-| Packet Type | Source | Destination | Seq No. | Ack No. |
-| ----------- | ------ | ----------- | ------- | ------- |
-| SYN         | Client | Server      | 1000    | —       |
-| SYN+ACK     | Server | Client      | 5000    | 1001    |
-
----
-
-# Result
-
-The sequence number of the TCP SYN packet and the corresponding SYN+ACK packet were successfully identified.
-
----
-
-# Conclusion
-
-* TCP handshake packets were analyzed successfully.
-* Sequence and acknowledgment numbers were identified correctly.
-* SYN packets initiate communication, while SYN+ACK packets acknowledge the request.
-* Packet analysis tools help understand TCP communication and troubleshooting.

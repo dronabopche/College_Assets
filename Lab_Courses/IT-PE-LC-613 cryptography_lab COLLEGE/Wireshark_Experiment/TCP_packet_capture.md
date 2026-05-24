@@ -182,26 +182,3 @@ Save as:
 * `capture.pcap`
 * `capture.pcapng`
 
----
-
-# Observation Table
-
-| Tool      | Output File | Purpose                     |
-| --------- | ----------- | --------------------------- |
-| tcpdump   | `.pcap`     | Command-line packet capture |
-| Wireshark | `.pcapng`   | GUI packet analysis         |
-
----
-
-# Result
-
-TCP packets were successfully captured and saved into a packet capture file.
-
----
-
-# Conclusion
-
-* TCP traffic was captured successfully using tcpdump/Wireshark.
-* Packet captures were stored in `.pcap` format.
-* Packet capture files help analyze network communication and troubleshoot network issues.
-* Wireshark and tcpdump are essential tools for network analysis and cybersecurity.

@@ -10,11 +10,6 @@ To identify open, closed, and filtered ports on a host using Nmap.
 
 Nmap (Network Mapper) is a network scanning tool used for:
 
-* Discovering hosts
-* Detecting open ports
-* Identifying services
-* Security auditing
-
 Port states:
 
 * **Open** → Service is running and accepting connections
@@ -24,9 +19,6 @@ Port states:
 ---
 
 # Requirements
-
-* Nmap installed
-* Target host or IP address
 
 Check installation:
 
@@ -159,36 +151,3 @@ nmap -p- scanme.nmap.org
 nmap -A scanme.nmap.org
 ```
 
-### Features
-
-* OS detection
-* Version detection
-* Script scanning
-* Traceroute
-
----
-
-# Observation Table
-
-| Port | State    | Service |
-| ---- | -------- | ------- |
-| 22   | Open     | SSH     |
-| 80   | Open     | HTTP    |
-| 25   | Closed   | SMTP    |
-| 139  | Filtered | NetBIOS |
-
----
-
-# Result
-
-The open, closed, and filtered ports on the target host were successfully identified using Nmap.
-
----
-
-# Conclusion
-
-* Nmap successfully scanned the target host.
-* Open ports revealed active services.
-* Closed ports showed inactive services.
-* Filtered ports indicated firewall protection.
-* Nmap is an effective tool for network discovery and security analysis.

@@ -6,26 +6,7 @@ To detect the operating system of a target host using Nmap.
 
 ---
 
-# Introduction
-
-Nmap can identify the operating system running on a target host using TCP/IP stack fingerprinting.
-
-OS detection helps in:
-
-* Network administration
-* Security auditing
-* Vulnerability assessment
-* Penetration testing
-
-Nmap compares network responses with its OS fingerprint database to identify the target operating system.
-
----
-
 # Requirements
-
-* Nmap installed
-* Target host or IP address
-* Root/administrator privileges
 
 Check installation:
 
@@ -140,26 +121,3 @@ PORT   STATE SERVICE VERSION
 
 OS details: Linux Ubuntu 20.04
 ```
-
----
-
-# Observation Table
-
-| Host            | Detected OS | Accuracy |
-| --------------- | ----------- | -------- |
-| scanme.nmap.org | Linux 5.x   | High     |
-| 192.168.1.1     | Windows 10  | Medium   |
-
----
-
-# Result
-
-The operating system of the target host was successfully detected using Nmap.
-
----
-
-# Conclusion
-
-* Nmap successfully identified the operating system of the target host.
-* OS fingerprinting provides useful information for network analysis and security testing.
-* Accurate OS detection helps administrators and security professionals assess systems effectively.

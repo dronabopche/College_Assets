@@ -118,29 +118,3 @@ tcpdump -nn -r capture.pcap
 tcpdump -nn -A -r capture.pcap port 80
 ```
 
----
-
-# Observation Table
-
-| Request       | Timestamp (s) |
-| ------------- | ------------- |
-| GET Request 1 | 10.245678     |
-| GET Request 2 | 12.987654     |
-
----
-
-# Final Calculation
-
-```text id="80smw6"
-Interval = 12.987654 - 10.245678
-         = 2.741976 seconds
-```
-
----
-
-# Conclusion
-
-* HTTP GET requests were successfully identified.
-* Timestamps of consecutive requests were analyzed.
-* The time interval between requests was calculated correctly.
-* Packet analysis tools help measure network timing and web traffic behavior.

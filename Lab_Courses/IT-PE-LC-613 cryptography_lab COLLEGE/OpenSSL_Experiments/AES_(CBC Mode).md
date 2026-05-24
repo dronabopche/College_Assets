@@ -37,7 +37,3 @@ openssl enc -d -aes-256-ecb -in encrypted.bin -out decrypted.txt -k mypassword
 cat decrypted.txt
 ```
 
----
-
-## Result
-The text file was successfully encrypted and decrypted using AES-256 in ECB mode with OpenSSL.

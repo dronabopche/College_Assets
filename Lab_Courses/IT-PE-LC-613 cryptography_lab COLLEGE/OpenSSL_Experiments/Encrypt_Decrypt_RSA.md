@@ -173,17 +173,3 @@ cat decrypted.txt
 
 Both outputs should match.
 
----
-
-# Result
-
-The message was successfully encrypted using the RSA public key and decrypted using the RSA private key.
-
----
-
-# Conclusion
-
-* RSA encryption was successfully performed using OpenSSL.
-* The public key encrypted the message securely.
-* The private key correctly decrypted the ciphertext.
-* RSA ensures confidentiality and secure communication.

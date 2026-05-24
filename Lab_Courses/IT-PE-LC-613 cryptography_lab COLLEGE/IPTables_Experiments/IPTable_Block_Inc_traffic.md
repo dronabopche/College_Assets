@@ -4,25 +4,7 @@
 
 To configure IPTables rules to block incoming traffic from a specific IP address.
 
----
-
-# Introduction
-
-iptables is a Linux firewall utility used to:
-
-* Filter network traffic
-* Block unauthorized access
-* Control incoming and outgoing packets
-
-Using IPTables, administrators can block traffic from malicious or unwanted IP addresses.
-
----
-
-# Requirements
-
-* Linux system
-* Root or sudo privileges
-* IPTables installed
+--- 
 
 Check IPTables installation:
 
@@ -122,45 +104,3 @@ sudo iptables -A INPUT -p tcp --dport 22 -s 192.168.1.100 -j DROP
 sudo iptables -D INPUT -s 192.168.1.100 -j DROP
 ```
 
----
-
-# Save IPTables Rules
-
-## Ubuntu/Debian
-
-```bash id="o44b42"
-sudo netfilter-persistent save
-```
-
----
-
-## CentOS/RHEL
-
-```bash id="o4xwm9"
-sudo service iptables save
-```
-
----
-
-# Observation Table
-
-| Rule                      | Action |
-| ------------------------- | ------ |
-| Block all traffic from IP | DROP   |
-| Block TCP traffic         | DROP   |
-| Block SSH access          | DROP   |
-
----
-
-# Result
-
-Incoming traffic from the specified IP address was successfully blocked using IPTables.
-
----
-
-# Conclusion
-
-* IPTables rules were configured successfully.
-* Traffic from the specified IP address was blocked.
-* IPTables provides effective packet filtering and firewall management.
-* Firewall rules improve network security and access control.

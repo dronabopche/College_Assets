@@ -27,10 +27,6 @@ utilities for this purpose.
 
 # Requirements
 
-* Linux system
-* Root or sudo privileges
-* IPTables installed
-
 Check installation:
 
 ```bash id="jlwm9f"
@@ -147,46 +143,3 @@ Save rules:
 sudo netfilter-persistent save
 ```
 
----
-
-# CentOS/RHEL
-
-## Command
-
-```bash id="pjlwm6"
-sudo service iptables save
-```
-
----
-
-# Automatic Restore at Boot
-
-| Distribution  | Configuration File        |
-| ------------- | ------------------------- |
-| Ubuntu/Debian | `/etc/iptables/rules.v4`  |
-| CentOS/RHEL   | `/etc/sysconfig/iptables` |
-
----
-
-# Observation Table
-
-| Operation     | Command                   |
-| ------------- | ------------------------- |
-| Save Rules    | `iptables-save > file`    |
-| Restore Rules | `iptables-restore < file` |
-| View Rules    | `iptables -L -v`          |
-
----
-
-# Result
-
-IPTables firewall rules were successfully saved and restored.
-
----
-
-# Conclusion
-
-* Firewall configurations were backed up successfully.
-* Saved rules can be restored after reboot or system failure.
-* IPTables provides efficient firewall rule management.
-* Saving firewall rules ensures persistent system security.

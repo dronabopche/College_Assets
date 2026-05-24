@@ -6,27 +6,7 @@ To detect services and software versions running on target hosts using Nmap.
 
 ---
 
-# Introduction
-
-Nmap is a powerful network scanning tool used to:
-
-* Discover hosts
-* Detect open ports
-* Identify running services
-* Detect software versions
-
-Version detection helps administrators identify:
-
-* Running applications
-* Service versions
-* Potential vulnerabilities
-
----
-
 # Requirements
-
-* Nmap installed
-* Target host or IP address
 
 Check installation:
 
@@ -158,27 +138,3 @@ nmap -sV --version-intensity 5 scanme.nmap.org
 | `--version-intensity` | Level of detection (0–9) |
 | `5`                   | Medium intensity         |
 
----
-
-# Observation Table
-
-| Port | State | Service | Version     |
-| ---- | ----- | ------- | ----------- |
-| 22   | Open  | SSH     | OpenSSH 8.2 |
-| 80   | Open  | HTTP    | Apache 2.4  |
-| 53   | Open  | DNS     | BIND 9.9    |
-
----
-
-# Result
-
-Services and software versions running on the target host were successfully identified using Nmap.
-
----
-
-# Conclusion
-
-* Nmap detected active services on the target system.
-* Software versions were identified successfully.
-* Version detection helps in vulnerability assessment and security auditing.
-* Nmap is an essential tool for network reconnaissance and penetration testing.

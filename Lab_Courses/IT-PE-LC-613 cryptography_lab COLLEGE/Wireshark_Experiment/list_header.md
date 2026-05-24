@@ -151,32 +151,3 @@ Flags: SYN, ACK
 Sequence Number: 5000
 Acknowledgment Number: 1001
 ```
-
----
-
-# Observation Table
-
-| Field            | Example Value |
-| ---------------- | ------------- |
-| Source Port      | 51514         |
-| Destination Port | 80            |
-| Sequence Number  | 1001          |
-| ACK Number       | 5001          |
-| Flags            | SYN, ACK      |
-| Window Size      | 64240         |
-| Checksum         | 0x1a2b        |
-
----
-
-# Result
-
-All TCP packet header fields were successfully identified and analyzed.
-
----
-
-# Conclusion
-
-* TCP packet headers provide important communication details.
-* Each header field performs a specific function in reliable data transfer.
-* Packet analysis tools help inspect TCP communication effectively.
-* Understanding TCP headers is essential for networking and cybersecurity analysis.

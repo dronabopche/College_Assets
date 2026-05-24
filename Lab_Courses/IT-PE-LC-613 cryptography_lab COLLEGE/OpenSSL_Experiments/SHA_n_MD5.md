@@ -160,22 +160,3 @@ Example:
 
 Both produce completely different digests.
 
----
-
-# Result
-
-Message digests were successfully generated using:
-
-* MD5
-* SHA-1
-* SHA-256
-* SHA-512 algorithms.
-
----
-
-# Conclusion
-
-* Hash functions generate fixed-length digests from input data.
-* MD5 and SHA algorithms were successfully implemented using OpenSSL.
-* SHA-256 and SHA-512 provide stronger security than MD5 and SHA-1.
-* Message digests help ensure data integrity and authentication.

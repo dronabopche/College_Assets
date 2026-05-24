@@ -15,19 +15,9 @@ Nmap allows users to save scan results in different formats such as:
 * Grepable format
 * All formats together
 
-Saving results helps in:
-
-* Documentation
-* Security auditing
-* Report generation
-* Future analysis
-
 ---
 
 # Requirements
-
-* Nmap installed
-* Target host or IP address
 
 Check installation:
 
@@ -153,29 +143,3 @@ PORT   STATE SERVICE VERSION
 22/tcp open  ssh     OpenSSH 8.2
 80/tcp open  http    Apache httpd 2.4
 ```
-
----
-
-# Observation Table
-
-| Output Type | Option | File Extension |
-| ----------- | ------ | -------------- |
-| Normal      | `-oN`  | `.txt`         |
-| XML         | `-oX`  | `.xml`         |
-| Grepable    | `-oG`  | `.gnmap`       |
-| All Formats | `-oA`  | Multiple       |
-
----
-
-# Result
-
-Nmap scan results were successfully saved into files using different output formats.
-
----
-
-# Conclusion
-
-* Nmap supports multiple output formats for saving scan results.
-* Saved outputs help in documentation and analysis.
-* XML and grepable formats are useful for automation and scripting.
-* Saving results improves efficiency in network security assessment.

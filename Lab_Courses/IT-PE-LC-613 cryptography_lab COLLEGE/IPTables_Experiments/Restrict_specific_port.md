@@ -6,23 +6,7 @@ To configure IPTables to restrict access to a specific network port.
 
 ---
 
-# Introduction
-
-iptables is a Linux firewall tool used to:
-
-* Allow or block network traffic
-* Protect services from unauthorized access
-* Control access to ports
-
-Restricting access to a port improves system security by limiting who can use a service.
-
----
-
 # Requirements
-
-* Linux system
-* Root or sudo privileges
-* IPTables installed
 
 Check installation:
 
@@ -135,36 +119,4 @@ sudo iptables -D INPUT -p tcp --dport 80 -j DROP
 ```bash id="yjlwm2"
 sudo netfilter-persistent save
 ```
-
 ---
-
-## CentOS/RHEL
-
-```bash id="kk0i8f"
-sudo service iptables save
-```
-
----
-
-# Observation Table
-
-| Port | Protocol | Action     |
-| ---- | -------- | ---------- |
-| 23   | TCP      | DROP       |
-| 80   | TCP      | DROP       |
-| 22   | TCP      | Restricted |
-
----
-
-# Result
-
-Access to the specified port was successfully restricted using IPTables.
-
----
-
-# Conclusion
-
-* IPTables successfully blocked access to selected ports.
-* Specific services were restricted for security purposes.
-* Trusted systems can be allowed while blocking others.
-* IPTables is an effective firewall management utility for Linux systems.
