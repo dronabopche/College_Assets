@@ -18,7 +18,7 @@ Save as `plain.txt`
 ## Encryption Command
 
 ```bash
-openssl enc -aes-256-ecb -in plain.txt -out encrypted.bin -k mypassword
+openssl enc -aes-256-cbc -in plain.txt -out encrypted.bin -k mypassword
 ```
 
 ---
@@ -26,7 +26,7 @@ openssl enc -aes-256-ecb -in plain.txt -out encrypted.bin -k mypassword
 ## Decryption Command
 
 ```bash
-openssl enc -d -aes-256-ecb -in encrypted.bin -out decrypted.txt -k mypassword
+openssl enc -d -aes-256-cbc -in encrypted.bin -out decrypted.txt -k mypassword
 ```
 
 ---
