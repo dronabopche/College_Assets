@@ -1,34 +1,53 @@
-## Steps to Run
+# YACC Programs – How to Execute
 
-### 1. Create the YACC file using vi
+## Prerequisites
+Install flex and bison (the modern yacc):
 ```bash
-vi calc.y
-````
-
-* Press `i` to enter insert mode
-* Write your YACC program
-* Press `Esc`, then type `:wq` and hit Enter
-
-### 2. Generate parser using Bison
-
-```bash
-bison -dy calc.y
+sudo apt install flex bison
 ```
 
-### 3. Compile the generated file
+---
+
+## Programs
+
+### 4. Calculator (`calc.l` + `calc.y`)
+Supports `+`, `-`, `*`, `/` operations.
 
 ```bash
-gcc y.tab.c -o calc
+lex calc.l              # generates lex.yy.c
+yacc -d calc.y          # generates y.tab.c and y.tab.h
+gcc lex.yy.c y.tab.c -o calc -lfl
+echo "3+4" | ./calc
+echo "10*2" | ./calc
+echo "15/3" | ./calc
 ```
 
-### 4. Run the program
+---
+
+### 5. Arithmetic Expression (`arith.l` + `arith.y`)
+Supports only `+`, `-`, `*` operations (no division).
 
 ```bash
-./calc
+lex arith.l
+yacc -d arith.y
+gcc lex.yy.c y.tab.c -o arith -lfl
+echo "3+4*2" | ./arith
+echo "10-5+3" | ./arith
+```
+
+---
+
+## General Compile Steps
+```bash
+lex <lexer>.l            # Step 1: generate lex.yy.c
+yacc -d <parser>.y       # Step 2: generate y.tab.c + y.tab.h
+gcc lex.yy.c y.tab.c -o <output> -lfl   # Step 3: compile
+echo "<expression>" | ./<output>         # Step 4: run
 ```
 
 ## Notes
-
-* `y.tab.c` is the generated parser file
-* `y.tab.h` contains token definitions
-
+- `-d` flag in yacc generates `y.tab.h` (needed by the lexer).
+- On some systems use `-ly` instead of `-lfl` for yacc programs.
+- If `lex` is not found, use `flex` instead.
+- If `yacc` is not found, use `bison -y` instead.
+- Press `Ctrl+D` to exit interactive mode.

@@ -1,30 +1,59 @@
-## Steps to Run
+# LEX Programs – How to Execute
 
-### 1. Create the Lex file using vi
+## Prerequisites
+Install flex (the modern lex):
 ```bash
-vi abc.l
-````
-
-* Press `i` to enter insert mode
-* Write your Lex program
-* Press `Esc`, then type `:wq` and hit Enter
-
-### 2. Generate the C file using Lex
-
-```bash
-lex abc.l
+sudo apt install flex
 ```
 
-### 3. Compile the generated file
+---
+
+## Programs
+
+### 1. Valid Integer Constant (`1_valid_integer.l`)
+Recognizes valid integer inputs.
 
 ```bash
-gcc lex.yy.c -o abc
+flex 1_valid_integer.l
+gcc lex.yy.c -o valid_integer -lfl
+echo "12345" | ./valid_integer
+echo "abc" | ./valid_integer
 ```
 
-### 4. Run the program
+---
+
+### 2. Valid Identifier (`2_valid_identifier.l`)
+Recognizes valid C-style identifiers.
 
 ```bash
-./a.out
+flex 2_valid_identifier.l
+gcc lex.yy.c -o valid_identifier -lfl
+echo "myVar_1" | ./valid_identifier
+echo "123abc" | ./valid_identifier
 ```
 
+---
 
+### 3. Valid Float Constant (`3_valid_float.l`)
+Recognizes valid floating-point numbers.
+
+```bash
+flex 3_valid_float.l
+gcc lex.yy.c -o valid_float -lfl
+echo "3.14" | ./valid_float
+echo "abc" | ./valid_float
+```
+
+---
+
+## General Compile Steps (for any .l file)
+```bash
+flex <filename>.l          # generates lex.yy.c
+gcc lex.yy.c -o <output> -lfl
+echo "<input>" | ./<output>
+```
+
+## Notes
+- `-lfl` links the flex library. On some systems use `-ll` instead.
+- Press `Ctrl+D` to send EOF when running interactively.
+- `yytext` holds the matched token text.
