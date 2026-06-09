@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Registration Form</title>
+</head>
+
+<body>
+    <h2>Enter Your Information</h2>
+
+    <form action="DisplayServlet" method="POST">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="roll">Roll Number:</label>
+        <input type="text" id="roll" name="roll" required><br><br>
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="Male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label><br><br>
+
+        <label>Programming Skills:</label>
+        <input type="checkbox" id="java" name="skills" value="Java">
+        <label for="java">Java</label>
+        <input type="checkbox" id="python" name="skills" value="Python">
+        <label for="python">Python</label>
+        <input type="checkbox" id="cpp" name="skills" value="C++">
+        <label for="cpp">C++</label><br><br>
+
+        <input type="submit" value="Submit Information">
+
+    </form>
+</body>
+
+</html>

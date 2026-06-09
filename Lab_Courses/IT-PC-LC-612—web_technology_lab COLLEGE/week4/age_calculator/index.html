@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Age Calculator</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0px;
+        }
+        .container{
+            background-color: #F8F8F8;
+            padding: 20px;
+            align-content: center;
+            max-width: 400px;
+            text-align: center;
+            border-radius: 10px;
+            border-color: black;
+        }
+        .user_input{
+            padding: 20px;
+        }
+        .message{
+            font-size: 20px;
+        }
+        #dob{
+             margin-top: 10px;
+             size: 30px;
+        }
+        #result{
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #e0e0e0;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background-color: #d4d4d4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Age Calculator</h2>
+    <div class="user_input">
+        <label for="dob" class="message">Select your Date of Birth</label>
+        <br>
+        <input type="date" id="dob">
+    </div>
+    
+    <br>
+    <button onclick="calculateAge()">Calculate Age</button>
+    
+    <div id="result"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

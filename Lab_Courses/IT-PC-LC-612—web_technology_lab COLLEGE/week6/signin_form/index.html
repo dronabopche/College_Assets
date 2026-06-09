@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Validation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 50px;
+        }
+        .form-container {
+            background-color: white;
+            width: 300px;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .error-msg {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none; /* Hidden by default */
+        }
+        .success-msg {
+            color: green;
+            font-weight: bold;
+            margin-top: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <form id="dataForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name">
+                <div id="nameError" class="error-msg">Name must contain only alphabets.</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone no.:</label>
+                <input type="text" id="phone" placeholder="1234567890">
+                <div id="phoneError" class="error-msg">Phone number must be exactly 10 digits.</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" placeholder="example@domain.com">
+                <div id="emailError" class="error-msg">Email must contain an '@' and a '.'.</div>
+            </div>
+            
+            <button type="button" onclick="validateForm()">OK</button>
+        </form>
+
+        <div id="successMessage" class="success-msg"></div>
+    </div>
+
+    <script>
+        function validateForm() {
+            // 1. Fetch input values
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            // 2. Fetch error message elements
+            const nameError = document.getElementById('nameError');
+            const phoneError = document.getElementById('phoneError');
+            const emailError = document.getElementById('emailError');
+            const successMessage = document.getElementById('successMessage');
+
+            // 3. Reset all error messages and success message before checking
+            nameError.style.display = 'none';
+            phoneError.style.display = 'none';
+            emailError.style.display = 'none';
+            successMessage.innerText = '';
+
+            let isValid = true;
+
+            // --- Rule 1: Name only alphabets (allows spaces for first/last name) ---
+            // Regex explanation: ^ start, [A-Za-z\s]+ letters and spaces, $ end
+            const nameRegex = /^[A-Za-z\s]+$/;
+            if (name === "" || !nameRegex.test(name)) {
+                nameError.style.display = 'block';
+                isValid = false;
+            }
+
+            // --- Rule 2: Phone no exactly 10 digits ---
+            // Regex explanation: ^ start, \d{10} exactly 10 numbers, $ end
+            const phoneRegex = /^\d{10}$/;
+            if (phone === "" || !phoneRegex.test(phone)) {
+                phoneError.style.display = 'block';
+                isValid = false;
+            }
+
+            // --- Rule 3: Email must contain @ and . ---
+            if (email === "" || !email.includes('@') || !email.includes('.')) {
+                emailError.style.display = 'block';
+                isValid = false;
+            }
+
+            // 4. Final Action if all rules pass
+            if (isValid) {
+                successMessage.innerText = "Data is valid and ready to be submitted!";
+                // Here is where you would typically submit the form to a server:
+                // document.getElementById('dataForm').submit();
+            }
+        }
+    </script>
+
+</body>
+</html>

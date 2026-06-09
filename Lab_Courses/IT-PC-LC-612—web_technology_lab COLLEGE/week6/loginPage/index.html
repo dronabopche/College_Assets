@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Login Page</title>
+        <script type="text/javascript">
+            // Function to redirect to the display page when the Display button is clicked
+            function redirectToDisplay() {
+                window.location.href = "display.jsp";
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Login Form</h2>
+        <form action="cookie.jsp" method="POST">
+            <table border="0">
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="username" required /></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" required /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Login" />
+                        
+                        <input type="button" value="Display" onclick="redirectToDisplay()" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

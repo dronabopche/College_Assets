@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 320px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-msg {
+            color: #dc3545;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+            /* Hidden until an error occurs */
+        }
+
+        .global-error {
+            color: #dc3545;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .success-msg {
+            color: #28a745;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>Registration</h2>
+
+        <div id="globalError" class="global-error">All fields are mandatory!</div>
+
+        <form id="regForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+                <div id="nameError" class="error-msg">Name must contain only alphabets.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="roll">Roll no.:</label>
+                <input type="text" id="roll" placeholder="23BTECHIT001">
+                <div id="rollError" class="error-msg">Roll no. must start with 23BTECHIT or 24BTECHIT.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone no.:</label>
+                <input type="text" id="phone" placeholder="10-digit number">
+                <div id="phoneError" class="error-msg">Phone number must be exactly 10 digits.</div>
+            </div>
+
+            <button type="button" onclick="validateForm()">SUBMIT</button>
+        </form>
+
+        <div id="successMessage" class="success-msg">Registration Successful!</div>
+    </div>
+
+    <script>
+        function validateForm() {
+            // 1. Fetch values and remove extra whitespace
+            const name = document.getElementById('name').value.trim();
+            const roll = document.getElementById('roll').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            // 2. Fetch error message elements
+            const globalError = document.getElementById('globalError');
+            const nameError = document.getElementById('nameError');
+            const rollError = document.getElementById('rollError');
+            const phoneError = document.getElementById('phoneError');
+            const successMessage = document.getElementById('successMessage');
+
+            // 3. Reset all messages before validating
+            globalError.style.display = 'none';
+            nameError.style.display = 'none';
+            rollError.style.display = 'none';
+            phoneError.style.display = 'none';
+            successMessage.style.display = 'none';
+
+            let isValid = true;
+
+            // --- Rule 1: All fields are mandatory ---
+            if (name === "" || roll === "" || phone === "") {
+                globalError.style.display = 'block';
+                isValid = false;
+                // We stop here so we don't show specific format errors on empty fields
+                return;
+            }
+
+            // --- Rule 2: Name only alphabets (allowing spaces) ---
+            const nameRegex = /^[A-Za-z\s]+$/;
+            if (!nameRegex.test(name)) {
+                nameError.style.display = 'block';
+                isValid = false;
+            }
+
+            // --- Rule 3: Roll no. starts with 23BTECHIT or 24BTECHIT ---
+            const rollRegex = /^(23BTECHIT|24BTECHIT)\d{2}$/;
+            if (!rollRegex.test(roll)) {
+                rollError.style.display = 'block';
+                isValid = false;
+            }
+
+            // --- Rule 4: Phone no exactly 10 digits ---
+            const phoneRegex = /^\d{10}$/;
+            if (!phoneRegex.test(phone)) {
+                phoneError.style.display = 'block';
+                isValid = false;
+            }
+
+            // --- Final Action ---
+            if (isValid) {
+                successMessage.style.display = 'block';
+
+                // If you were sending this to a server, you would execute:
+                // document.getElementById('regForm').submit();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
