@@ -1,16 +1,24 @@
 class Solution:
     def findLucky(self, arr: List[int]) -> int:
-        freq = {} 
-
-        for i in arr:
-            if i in freq:
-                freq[i] += 1
+        arr.sort() 
+        
+        curr = arr[-1]
+        count = 0
+        
+        #backwards
+        for i in arr[::-1]:
+            if i == curr:
+                count += 1
             else:
-                freq[i] = 1
-        ans = -1
-
-        for i, j in freq.items():  
-            if i == j:
-                ans = max(ans, i)
+                #check the group we counting
+                if curr == count:
+                    return curr
                 
-        return ans
+                # Reset
+                curr = i
+                count = 1  
+        
+        if curr == count:
+            return curr
+            
+        return -1
